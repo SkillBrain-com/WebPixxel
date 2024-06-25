@@ -21,59 +21,51 @@ public class BaseTest {
         action = new Actions(driver);
         PageFactory.initElements(driver, this);
     }
-
-    protected WebDriverWait waitElement() {
+    private WebDriverWait waitElement() {
         return new WebDriverWait(driver, 15);
     }
-
     protected void addText(String inputText, WebElement locator) {
         clear(locator);
         locator.sendKeys(inputText);
     }
-
     protected void click(WebElement locator) {
         clickAble(locator).click();
     }
-
-    protected void moveToElement() {
+    protected void movetoElement() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
-
     protected String getPageTitle() {
         return driver.getTitle();
     }
-
     public String getUrl() {
         return driver.getCurrentUrl();
     }
-
     protected WebElement listOfElements(List<WebElement> list, String text) {
         WebElement elem = null;
-        for (WebElement webElement : list) {
-            if (webElement.getText().equalsIgnoreCase(text)) {
-                elem = webElement;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getText().equalsIgnoreCase(text)) {
+                elem = list.get(i);
                 break;
             }
         }
         return elem;
     }
-
     protected WebElement clickAble(WebElement locator) {
         waitElement().until(ExpectedConditions.elementToBeClickable(locator));
         return locator;
     }
-
     protected void clear(WebElement locator) {
         click(locator);
+        Keys Keys = null;
         if (getOperationSystem().contains("Windows")) {
             locator.sendKeys(Keys.chord(Keys.CONTROL, "a"));
         } else if (getOperationSystem().contains("Mac OS X")) {
             locator.sendKeys(Keys.chord(Keys.COMMAND, "a"));
         }
     }
-
     private String getOperationSystem() {
-        return System.getProperty("os.name");
+        String operateSystem = System.getProperty("os.name");
+        return operateSystem;
     }
 }
