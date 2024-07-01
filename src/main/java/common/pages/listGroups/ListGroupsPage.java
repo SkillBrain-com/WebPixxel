@@ -1,4 +1,4 @@
-package common.listGroups;
+package common.pages.listGroups;
 
 import com.sun.tools.javac.util.List;
 import common.base.BaseTest;
