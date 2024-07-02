@@ -11,7 +11,7 @@ public class ModalsPage extends BaseTest {
     @FindBy(xpath = "//a[contains(text(), 'Library')]")
     private WebElement libraryOption;
 
-    @FindBy(xpath = "//div[@class='dropdown-menu show']")
+    @FindBy(xpath = "//div[@class='dropdown-menu show']//a")
     private List<WebElement> listOfLibraryOptions;
 
     @FindBy(xpath = "//a[@class=\"nav-link border rounded-pill py-2 text-heading bg-light fw-semibold text-primary\"]")
