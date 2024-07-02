@@ -11,7 +11,7 @@ public class AccordionPage extends BaseTest {
     @FindBy(xpath = "//a[contains(text(), 'Library')]")
     private WebElement libraryOption;
 
-    @FindBy(xpath = "//div[@class='dropdown-menu show']")
+    @FindBy(xpath = "//div[@class='dropdown-menu show']//a")
     private List<WebElement> listOfLibraryOptions;
 
     @FindBy(xpath = "//a[contains(text(), 'Accordion')]")
