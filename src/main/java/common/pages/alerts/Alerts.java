@@ -1,12 +1,13 @@
 package common.pages.alerts;
 
-import common.base.BaseTest;
+
+import common.pages.base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class alerts extends BaseTest {
+public class Alerts extends BaseTest {
 
     @FindBy(xpath = "//a[contains(text(), 'Library')]")
     private WebElement libraryOption;
