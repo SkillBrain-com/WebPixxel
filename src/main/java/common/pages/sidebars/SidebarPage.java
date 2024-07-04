@@ -1,6 +1,6 @@
 package common.pages.sidebars;
 
-import common.base.BaseTest;
+import common.pages.base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

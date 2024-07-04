@@ -1,4 +1,4 @@
-package common.utils;
+package common.pages.utils;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package common.base;
+package common.pages.base;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -10,19 +10,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-import static common.base.DriverConfiguration.driver;
-
 public class BaseTest {
     DriverConfiguration driverConfiguration;
     Actions action;
 
     public BaseTest() {
         driverConfiguration = new DriverConfiguration();
-        action = new Actions(driver);
-        PageFactory.initElements(driver, this);
+        action = new Actions(DriverConfiguration.driver);
+        PageFactory.initElements(DriverConfiguration.driver, this);
     }
     private WebDriverWait waitElement() {
-        return new WebDriverWait(driver, 15);
+        return new WebDriverWait(DriverConfiguration.driver, 15);
     }
     protected void addText(String inputText, WebElement locator) {
         clear(locator);
@@ -32,14 +30,14 @@ public class BaseTest {
         clickAble(locator).click();
     }
     protected void movetoElement() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) DriverConfiguration.driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
     protected String getPageTitle() {
-        return driver.getTitle();
+        return DriverConfiguration.driver.getTitle();
     }
     public String getUrl() {
-        return driver.getCurrentUrl();
+        return DriverConfiguration.driver.getCurrentUrl();
     }
     protected WebElement listOfElements(List<WebElement> list, String text) {
         WebElement elem = null;

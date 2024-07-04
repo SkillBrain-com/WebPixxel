@@ -1,4 +1,4 @@
-package common.base;
+package common.pages.base;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
