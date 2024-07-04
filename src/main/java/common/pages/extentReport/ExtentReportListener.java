@@ -1,8 +1,8 @@
-package common.extentReport;
+package common.pages.extentReport;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
-import common.base.DriverConfiguration;
+import common.pages.base.DriverConfiguration;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
