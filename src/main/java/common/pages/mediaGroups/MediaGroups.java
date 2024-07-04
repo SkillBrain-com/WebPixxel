@@ -22,6 +22,11 @@ public class MediaGroups extends BaseTest {
     @FindBy(xpath = "//div[@class='d-flex align-items-center gap-1']//div[@class='d-inline-flex ms-auto gap-3']//div[@class='d-inline-flex gap-1 align-items-center text-body-tertiary']//i[@class='bi bi-heart-fill text-sm text-opacity-50-hover text-opacity-100 text-body-tertiary']")
     private List<WebElement> mediaGoupsHeartDefoult;
 
+    @FindBy(xpath = "//div[@class='d-flex align-items-center gap-1']//div[@class='d-inline-flex ms-auto gap-3']//div[@class='d-inline-flex gap-1 align-items-center text-body-tertiary'][1]//span[@class='text-xs fw-semibold text-body']")
+    private List<WebElement> heartsNumber;
+
+
+
 
 
 
