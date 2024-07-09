@@ -1,9 +1,5 @@
-<<<<<<<< HEAD:src/main/java/common/pages/listGroups/ListGroupsPage.java
-package common.pages.listGroups;
-========
-package page.page.listGroups;
->>>>>>>> 688055a (adaugare):src/main/java/page/page/listGroups/ListGroupsPage.java
 
+package common.pages.listGroups;
 import com.sun.tools.javac.util.List;
 import common.pages.base.BaseTest;
 import org.openqa.selenium.WebElement;
