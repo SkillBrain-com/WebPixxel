@@ -1,6 +1,5 @@
 package common.pages.accordion;
 
-
 import common.pages.base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +25,38 @@ public class AccordionPage extends BaseTest {
 
     @FindBy(xpath = "//div[@class='d-inline-flex ms-auto gap-3']//div[@class='d-inline-flex gap-1 align-items-center text-body-tertiary'][1]//span")
     private List<WebElement> listOfNumberOfHeartAccordion;
+
+    public void pressLibraryOption(){
+        click(libraryOption);
+    }
+
+    public void chooseLibraryOption(String option){
+        click(listOfElements(listOfLibraryOptions, option));
+    }
+
+    public void chooseAccordionOption(){
+        click(accordionOption);
+    }
+
+    public boolean isAccordionPagePopulatedWithWidgets() {
+//      return (listOfAccordion.size() > 0)? true:false;
+
+/*      if(listOfAccordion.size() > 0){
+        return true;}
+        else{return false}
+ */
+        return listOfAccordion.size() > 0;
+    }
+
+    public boolean isListOfHeartAccordionFunctional(){
+        return listOfHeartAccordion.size() == listOfAccordion.size();
+    }
+
+    public void isListOfNumberOfHeartEqualWithListOfHeart(){
+
+    }
+
+
 
 
 
