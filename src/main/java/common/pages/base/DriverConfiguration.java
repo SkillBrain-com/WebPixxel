@@ -18,6 +18,7 @@ public class DriverConfiguration {
 
     @BeforeMethod(alwaysRun = true)
     public void setDriver(ITestContext context) {
+//      System.setProperty("webdriver.chrome.driver", "D:\\BIANCA\\WebPixel\\src\\main\\resources\\driver\\chromedriver.exe");
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
