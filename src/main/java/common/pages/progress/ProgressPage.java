@@ -2,6 +2,7 @@ package common.pages.progress;
 
 
 import common.pages.base.BaseTest;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,4 +22,26 @@ public class ProgressPage extends BaseTest {
     @FindBy(xpath = "//input[@class=\"form-control form-control-muted ps-2 rounded-end-pill\"]")
     private WebElement searchLibrary;
 
-}
+    public void clickSearchbox(){
+        click(searchLibrary);
+    }
+
+    public void searchComponent(String text){
+        addText(text, searchLibrary);
+        enterInput();
+    }
+
+    private void enterInput(){
+        action.sendKeys(Keys.ENTER);
+    }
+
+    public boolean componentIsPopulated(){
+        return(progressWidgets.size() > 0)? true:false;
+    }
+
+    public boolean heartNumbersEqualsWidgetNumbers(){
+        return(favoritesWidgets.size() == progressWidgets.size())? true:false;
+    }
+
+    }
+

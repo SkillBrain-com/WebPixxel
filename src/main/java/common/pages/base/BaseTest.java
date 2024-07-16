@@ -12,7 +12,7 @@ import java.util.List;
 
 public class BaseTest {
     DriverConfiguration driverConfiguration;
-    Actions action;
+    protected Actions action;
 
     public BaseTest() {
         driverConfiguration = new DriverConfiguration();
