@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 
 package common.pages.listGroups;
 
+=======
+>>>>>>> 19334889a9f081f1efd37730c67e64c2639f2b82
 
+package common.pages.listGroups;
 import com.sun.tools.javac.util.List;
 import common.pages.base.BaseTest;
 import org.openqa.selenium.WebElement;
