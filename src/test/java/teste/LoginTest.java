@@ -7,18 +7,19 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class LoginTest {
-    private final AccordionPage accordion;
-    public LoginTest(){
-        accordion = new AccordionPage();
+public class LoginTest extends BasePage{
+
+    public AccordionPage accordionPage(){
+        return new AccordionPage();
     }
 
     @Test(description = " Happy Test")
 //    @Parameters({"username", "password", "typeOfRunning"})
-    public void verifyLogin() {
-        accordion.getUrl();
-
-        Assert.assertEquals(BasePage.driver_local.getCurrentUrl(), "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
-//        logger.log(LogStatus.PASS, "HomePage is displayed");
+    public void verifyLogin() throws InterruptedException {
+        accordionPage().getPageTitle();
+        Assert.assertEquals(accordionPage().getPageTitle(), "Demo");
+        Assert.assertEquals(driver_local.getCurrentUrl(), "https://opaaaensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        Thread.sleep(10000);
+        logger.log(LogStatus.PASS, "HomePage is displayed");
     }
 }

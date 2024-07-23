@@ -17,15 +17,11 @@ import java.util.Set;
 public class BaseTest  {
 
     protected WebDriver driver;
-    BasePage basePage = new BasePage();
     Actions action;
 
     public BaseTest() {
-        basePage = new BasePage();
-        basePage.setup();
         driver = BasePage.driver_local;
         PageFactory.initElements(driver, this);
-//        action = new Actions(driver);
     }
 
     public void SwitchToNextTab() {
@@ -65,7 +61,7 @@ public class BaseTest  {
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
 
-    protected String getPageTitle() {
+    public String getPageTitle() {
         return driver.getTitle();
     }
 

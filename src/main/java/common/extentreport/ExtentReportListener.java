@@ -21,6 +21,7 @@ public class ExtentReportListener extends BasePage implements ITestListener, ISu
 
 	@Override
 	public void onStart(ISuite suite) {
+		//Create an html report for the suite that is executed
 		report = new ExtentReports("./report/" + suite.getName() + "_Results.html");
 	}
 
@@ -44,15 +45,35 @@ public class ExtentReportListener extends BasePage implements ITestListener, ISu
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		String fileName = String.format("Screenshot-%s.jpg", Calendar.getInstance().getTimeInMillis());
-		File srcFile = ((TakesScreenshot)BasePage.driver_local).getScreenshotAs(OutputType.FILE);
-		File destFile = new File("./screenshots/" + fileName);
+		//Convert web driver object to TakeScreenshot
+
+		TakesScreenshot scrShot =((TakesScreenshot)driver_local);
+
+		//Call getScreenshotAs method to create image file
+
+		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+
+		//Move image file to new destination
+		String fileName = String.format("Screenshot-%s.png", Calendar.getInstance().getTimeInMillis());
+		File DestFile=new File("./screenshots/" + fileName);
+
+		//Copy file at destination
+
 		try {
-			FileUtils.copyFile(srcFile, destFile);
-			System.out.println("Screenshot taken, saved in screenshots folder");
-		} catch(IOException e) {
-			System.out.println("Failed to take screenshot");
+			FileUtils.copyFile(SrcFile, DestFile);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
+//		String fileName = String.format("Screenshot-%s.png", Calendar.getInstance().getTimeInMillis());
+//		WebDriver driver = (WebDriver)result.getTestContext().getAttribute("WebDriver"); //use string from setAttribute from BasePage
+//		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//		File destFile = new File("./screenshots/" + fileName);
+//		try {
+//			FileUtils.copyFile(srcFile, destFile);
+//			System.out.println("Screenshot taken, saved in screenshots folder");
+//		} catch(IOException e) {
+//			System.out.println("Failed to take screenshot");
+//		}
 		logger.log(LogStatus.FAIL, "Test failed, attaching screenshot in screenshots folder");
 	}
 
