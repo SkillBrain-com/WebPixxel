@@ -65,6 +65,10 @@ public class BaseTest  {
         return driver.getTitle();
     }
 
+    public String getSourceHtml(){
+        return driver.getPageSource();
+    }
+
     public String getUrl() {
         return driver.getCurrentUrl();
     }
