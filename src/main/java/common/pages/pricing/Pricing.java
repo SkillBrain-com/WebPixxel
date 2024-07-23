@@ -9,7 +9,7 @@ import java.util.List;
 public class Pricing extends BaseTest {
 
     @FindBy(xpath = "//a[contains(text(), 'Pricing')]")
-    private WebElement ;
+    private WebElement pricing;
 
     @FindBy(xpath = "//div[@class='dropdown-menu show']//a")
     private List<WebElement> listOfLibraryOptions;

@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-
-package common.pages.listGroups;
-
-=======
->>>>>>> 19334889a9f081f1efd37730c67e64c2639f2b82
 
 package common.pages.listGroups;
 import common.pages.base.BaseTest;
