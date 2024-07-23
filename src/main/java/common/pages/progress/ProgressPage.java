@@ -32,7 +32,7 @@ public class ProgressPage extends BaseTest {
     }
 
     private void enterInput(){
-        action.sendKeys(Keys.ENTER);
+//        action.sendKeys(Keys.ENTER);
     }
 
     public boolean componentIsPopulated(){
