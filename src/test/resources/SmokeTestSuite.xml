@@ -11,9 +11,9 @@
             <class name="teste.LoginTest" >
                 <methods>
                     <include name="verifyLogin">
-<!--                        <parameter name="username" value="Admin" />-->
-<!--                        <parameter name="password" value="admin123" />-->
-<!--                        <parameter name="typeOfRunning" value="remote" />-->
+                        <parameter name="username" value="Admin" />
+                        <parameter name="password" value="admin123" />
+                        <parameter name="typeOfRunning" value="remote" />
                     </include>
                 </methods>
             </class>
