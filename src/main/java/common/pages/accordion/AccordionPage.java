@@ -3,6 +3,7 @@ package common.pages.accordion;
 import common.pages.base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -16,6 +17,9 @@ public class AccordionPage extends BaseTest {
 
     @FindBy(xpath = "//a[contains(text(), 'Accordion')]")
     private WebElement accordionOption;
+
+    @FindBy(xpath = "//ul[@class='position-relative flex-fill nav gap-2 flex-nowrap scrollable-x']//li")
+    private List<WebElement> listOfComponentsOptions;
 
     @FindBy(xpath = "//div[@class = 'row gx-lg-8 mt-8']//div[@class  ='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-8']//div[@class = 'col']")
     private List<WebElement> listOfAccordion;
@@ -34,7 +38,16 @@ public class AccordionPage extends BaseTest {
         click(listOfElements(listOfLibraryOptions, option));
     }
 
-    public void chooseAccordionOption(){
+    public void chooseComponentsOption(String component){
+        waitPage().until(ExpectedConditions.visibilityOfAllElements(listOfComponentsOptions));
+        click(listOfElements(listOfComponentsOptions, component));
+    }
+
+    public boolean getCurrentURL(String url){
+       return waitPage().until(ExpectedConditions.urlToBe(url));
+    }
+
+    private void chooseAccordionOption(){
         click(accordionOption);
     }
 
