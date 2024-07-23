@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 
-import common.pages.base.DriverConfiguration;
+import common.pages.base.BasePage;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -17,8 +17,7 @@ import org.testng.ITestResult;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 
-
-public class ExtentReportListener extends DriverConfiguration implements ITestListener, ISuiteListener {
+public class ExtentReportListener extends BasePage implements ITestListener, ISuiteListener {
 
 	@Override
 	public void onStart(ISuite suite) {
@@ -46,16 +45,35 @@ public class ExtentReportListener extends DriverConfiguration implements ITestLi
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		String fileName = String.format("Screenshot-%s.jpg", Calendar.getInstance().getTimeInMillis());
-		WebDriver driver = (WebDriver)result.getTestContext().getAttribute("WebDriver"); //use string from setAttribute from BasePage
-		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		File destFile = new File("./screenshots/" + fileName);
+		//Convert web driver object to TakeScreenshot
+
+		TakesScreenshot scrShot =((TakesScreenshot)driver_local);
+
+		//Call getScreenshotAs method to create image file
+
+		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+
+		//Move image file to new destination
+		String fileName = String.format("Screenshot-%s.png", Calendar.getInstance().getTimeInMillis());
+		File DestFile=new File("./screenshots/" + fileName);
+
+		//Copy file at destination
+
 		try {
-			FileUtils.copyFile(srcFile, destFile);
-			System.out.println("Screenshot taken, saved in screenshots folder");
-		} catch(IOException e) {
-			System.out.println("Failed to take screenshot");
+			FileUtils.copyFile(SrcFile, DestFile);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
+//		String fileName = String.format("Screenshot-%s.png", Calendar.getInstance().getTimeInMillis());
+//		WebDriver driver = (WebDriver)result.getTestContext().getAttribute("WebDriver"); //use string from setAttribute from BasePage
+//		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//		File destFile = new File("./screenshots/" + fileName);
+//		try {
+//			FileUtils.copyFile(srcFile, destFile);
+//			System.out.println("Screenshot taken, saved in screenshots folder");
+//		} catch(IOException e) {
+//			System.out.println("Failed to take screenshot");
+//		}
 		logger.log(LogStatus.FAIL, "Test failed, attaching screenshot in screenshots folder");
 	}
 

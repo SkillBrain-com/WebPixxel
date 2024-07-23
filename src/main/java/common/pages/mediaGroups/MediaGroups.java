@@ -1,9 +1,10 @@
 package common.pages.mediaGroups;
 
-import com.sun.tools.javac.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import common.pages.base.BaseTest;
+
+import java.util.List;
 
 public class MediaGroups extends BaseTest {
 
