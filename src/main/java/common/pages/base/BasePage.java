@@ -3,10 +3,8 @@ package common.pages.base;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestContext;
 import org.testng.Reporter;
@@ -25,7 +23,7 @@ public class BasePage {
      */
     @BeforeMethod(alwaysRun = true)
     public void setup(ITestContext context) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\AlZaharia\\Downloads\\WebPixxel\\src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\BIANCA\\WebPixel\\src\\test\\resources\\driver\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver_local = new ChromeDriver(options);
