@@ -29,4 +29,5 @@ public class BlogPage extends BaseTest {
     @FindBy(xpath = "//input[@class='form-control form-control-muted ps-2 rounded-end-pill']")
     private WebElement searchLibrary;
 
+
 }
