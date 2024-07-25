@@ -9,20 +9,17 @@ import java.util.List;
 
 public class MediaGroups extends BaseTest {
 
-    public static final String URL = "https://dev.webpixels.io/library/components";
+    @FindBy(xpath = "//a[contains(text(), 'Library')]")
+    private WebElement libraryOption;
+
     @FindBy(xpath = "//input[@placeholder=\"Search library ...\"]")
     private WebElement searchElement;
 
-    @FindBy(xpath = "//a[normalize-space()='Library']")
-    private WebElement Library;
-
-   @FindBy(xpath = "//a[@class='px-2 dropdown-item'][normalize-space()='Components']")
-   private WebElement Components;
-
-   @FindBy (xpath = "//a[@class='nav-link border rounded-pill py-2 text-heading bg-light fw-semibold text-primary']")
-   private WebElement Media;
     @FindBy(xpath = "//div[@class='dropdown-menu show']//a")
     private List<WebElement> dropDownLibrary;
+
+    @FindBy(xpath = "//div['components']//div//ul//li//a[normalize-space()='Media']")
+    private WebElement mediaButton;
 
     @FindBy(xpath = "//div[@class='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-8']//div[@class='col']")
     private List<WebElement> mediaGroupsElements;
@@ -37,26 +34,34 @@ public class MediaGroups extends BaseTest {
     private List<WebElement> heartsNumber;
 
 
-    public void pressLibrary() {click(Library);
+
+    public void pressLibraryOption(){
+        click(libraryOption);
     }
 
-    public void pressComponentsFromLibrary() {
-        click(Components);
+    public void dropDownLibraryOption(String components){
+        click(listOfElements(dropDownLibrary, components));
+
     }
 
-    public void chooseComponentsOption() {
-        click(Media);
+    public void pressMediaButton(){
+        click(mediaButton);
     }
 
-    public boolean getCurrentURL(String url) {
-        return waitPage().until(ExpectedConditions.urlToBe(URL));
-    }
 
-    public boolean isMediaGroupsPopulatedWithWidgets() {
+    public boolean getCurrentURL(String url){
+        return waitPage().until(ExpectedConditions.urlToBe(url));
+    }
+    public boolean isMediaGroupsPagePopulatedWithWidgets(){
         return !mediaGroupsElements.isEmpty();
+
     }
 
-    public boolean isMediaGroupsFunctional() {
-        return heartsNumber.size()== mediaGroupsElements.size();
+    public boolean isMediaGroupsHeartsFunctional(){
+        return heartsNumber.size() == mediaGroupsElements.size();
     }
+
+
+
+
 }
