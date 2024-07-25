@@ -22,7 +22,15 @@
                     <include name="accordionTest"/>
                 </methods>
             </class>
+
+            <class name="teste.MediaGroupsTest">
+                <methods>
+                    <include name="mediaGroupsTest"/>
+                </methods>
+            </class>
+
         </classes>
+
     </test>
 
 </suite>

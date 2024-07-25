@@ -25,13 +25,13 @@ public class BasePage {
      */
     @BeforeMethod(alwaysRun = true)
     public void setup(ITestContext context) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\AlZaharia\\Downloads\\WebPixxel\\src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\WebPixxel\\src\\test\\resources\\driver\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver_local = new ChromeDriver(options);
         driver_local.manage().window().maximize();
         driver_local.manage().deleteAllCookies();
-        driver_local.get("https://www.guru99.com/take-screenshot-selenium-webdriver.html");
+        driver_local.get("https://dev.webpixels.io?_vercel_share=iu3iQf3W4jtz727a39FefR6HEFMdMeeWggit");
         context.setAttribute("WebDriver", driver_local);
     }
 
