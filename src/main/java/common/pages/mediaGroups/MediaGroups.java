@@ -3,6 +3,7 @@ package common.pages.mediaGroups;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import common.pages.base.BaseTest;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -11,6 +12,14 @@ public class MediaGroups extends BaseTest {
     @FindBy(xpath = "//input[@placeholder=\"Search library ...\"]")
     private WebElement searchElement;
 
+    @FindBy(xpath = "//a[normalize-space()='Library']")
+    private WebElement Library;
+
+   @FindBy(xpath = "//a[@class='px-2 dropdown-item'][normalize-space()='Components']")
+   private WebElement Components;
+
+   @FindBy (xpath = "//a[@class='nav-link border rounded-pill py-2 text-heading bg-light fw-semibold text-primary']")
+   private WebElement Media;
     @FindBy(xpath = "//div[@class='dropdown-menu show']//a")
     private List<WebElement> dropDownLibrary;
 
@@ -27,12 +36,27 @@ public class MediaGroups extends BaseTest {
     private List<WebElement> heartsNumber;
 
 
+    public void pressLibrary() {click(Library);
 
+    }
 
+    public void pressComponentsFromLibrary() {
+        click(Components);
+    }
 
+    public void chooseComponentsOption() {
+        click(Media);
+    }
 
+    public boolean getCurrentURL(String url) {
+        return waitPage().until(ExpectedConditions.urlToBe("https://dev.webpixels.io/library/components"));
+    }
 
+    public boolean isMediaGroupsPopulatedWithWidgets() {
+        return !mediaGroupsElements.isEmpty();
+    }
 
-
-
+    public boolean isMediaGroupsFunctional() {
+        return heartsNumber.size()== mediaGroupsElements.size();
+    }
 }

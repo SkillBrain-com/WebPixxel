@@ -25,7 +25,7 @@ public class BasePage {
      */
     @BeforeMethod(alwaysRun = true)
     public void setup(ITestContext context) {
-        System.setProperty("webdriver.chrome.driver", "E:\\QA Automation\\Internship_WebPixxel\\WebPixxel\\src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Dell\\Desktop\\webpixels\\WebPixxel\\src\\test\\resources\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver_local = new ChromeDriver(options);
