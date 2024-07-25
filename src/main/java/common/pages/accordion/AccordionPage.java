@@ -30,6 +30,7 @@ public class AccordionPage extends BaseTest {
     @FindBy(xpath = "//div[@class='d-inline-flex ms-auto gap-3']//div[@class='d-inline-flex gap-1 align-items-center text-body-tertiary'][1]//span")
     private List<WebElement> listOfNumberOfHeartAccordion;
 
+
     public void pressLibraryOption(){
         click(libraryOption);
     }
@@ -44,7 +45,7 @@ public class AccordionPage extends BaseTest {
     }
 
     public boolean getCurrentURL(String url){
-       return waitPage().until(ExpectedConditions.urlToBe(url));
+        return waitPage().until(ExpectedConditions.urlToBe(url));
     }
 
     private void chooseAccordionOption(){
@@ -65,18 +66,8 @@ public class AccordionPage extends BaseTest {
         return listOfHeartAccordion.size() == listOfAccordion.size();
     }
 
-    public void isListOfNumberOfHeartEqualWithListOfHeart(){
-
+    public boolean isListOfNumberOfHeartEqualWithListOfHeart(){
+        return listOfHeartAccordion.size() == listOfNumberOfHeartAccordion.size();
     }
-
-
-
-
-
-
-
-
-
-
 
 }

@@ -18,9 +18,7 @@ public class AccordionTest extends BasePage {
         Assert.assertTrue(accordionPage.getCurrentURL("https://dev.webpixels.io/library/components/accordion"));
         Assert.assertTrue(accordionPage.isAccordionPagePopulatedWithWidgets());
         Assert.assertTrue(accordionPage.isListOfHeartAccordionFunctional());
+        Assert.assertTrue(accordionPage.isListOfNumberOfHeartEqualWithListOfHeart());
     }
-
-
-
 
 }
