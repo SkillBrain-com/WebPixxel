@@ -58,7 +58,7 @@ public class AccordionPage extends BaseTest {
         return true;}
         else{return false}
  */
-        return listOfAccordion.size() > 0;
+        return !listOfAccordion.isEmpty();
     }
 
     public boolean isListOfHeartAccordionFunctional(){
