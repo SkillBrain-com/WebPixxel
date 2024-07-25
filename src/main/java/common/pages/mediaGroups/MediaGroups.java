@@ -38,7 +38,6 @@ public class MediaGroups extends BaseTest {
 
 
     public void pressLibrary() {click(Library);
-
     }
 
     public void pressComponentsFromLibrary() {
