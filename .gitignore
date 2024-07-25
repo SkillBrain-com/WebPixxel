@@ -39,3 +39,4 @@ build/
 /.idea/
 /src/test/resources/driver/
 /chromedriver.exe
+/screenshots/

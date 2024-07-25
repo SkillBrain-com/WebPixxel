@@ -8,18 +8,28 @@
     </listeners>
     <test name="Smoke Test">
         <classes>
-<!--            <class name="teste.LoginTest" >-->
-<!--                <methods>-->
-<!--                    <include name="verifyLogin">-->
-<!--                        <parameter name="username" value="Admin" />-->
-<!--                        <parameter name="password" value="admin123" />-->
-<!--                        <parameter name="typeOfRunning" value="remote" />-->
-<!--                    </include>-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="teste.LoginTest" >
+                <methods>
+                    <include name="verifyLogin">
+                        <parameter name="username" value="Admin" />
+                        <parameter name="password" value="admin123" />
+                        <parameter name="typeOfRunning" value="remote" />
+                    </include>
+                </methods>
+            </class>
             <class name="teste.AccordionTest" >
                 <methods>
                     <include name="accordionTest"/>
+                </methods>
+            </class>
+            <class name="teste.AlertsTest">
+                <methods>
+                    <include name="alertsTest"/>
+                </methods>
+            </class>
+            <class name="teste.AvatarTest">
+                <methods>
+                    <include name="avatarTest"/>
                 </methods>
             </class>
 
