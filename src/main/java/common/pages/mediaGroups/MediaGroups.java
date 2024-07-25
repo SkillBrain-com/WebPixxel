@@ -9,6 +9,7 @@ import java.util.List;
 
 public class MediaGroups extends BaseTest {
 
+    public static final String URL = "https://dev.webpixels.io/library/components";
     @FindBy(xpath = "//input[@placeholder=\"Search library ...\"]")
     private WebElement searchElement;
 
@@ -49,7 +50,7 @@ public class MediaGroups extends BaseTest {
     }
 
     public boolean getCurrentURL(String url) {
-        return waitPage().until(ExpectedConditions.urlToBe("https://dev.webpixels.io/library/components"));
+        return waitPage().until(ExpectedConditions.urlToBe(URL));
     }
 
     public boolean isMediaGroupsPopulatedWithWidgets() {
